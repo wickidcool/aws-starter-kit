@@ -6,5 +6,6 @@ jest.mock('expo-status-bar', () => ({
 }));
 
 // Silence console warnings in tests
+// eslint-disable-next-line @typescript-eslint/no-empty-function
 jest.spyOn(console, 'warn').mockImplementation(() => { });
 
