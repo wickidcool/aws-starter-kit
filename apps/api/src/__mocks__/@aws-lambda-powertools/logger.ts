@@ -1,3 +1,5 @@
+import jest from 'jest-mock';
+
 /**
  * Manual mock for @aws-lambda-powertools/logger
  */
