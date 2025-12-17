@@ -18,5 +18,6 @@ export default {
       'jest-expo/src/preset/assetFileTransformer.js',
   },
   coverageDirectory: '../../coverage/apps/mobile',
+  coverageReporters: ['html', 'text', 'json', 'json-summary'],
 };
 
