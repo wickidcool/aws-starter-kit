@@ -1,13 +1,14 @@
-import jest from 'jest-mock';
-
 /**
  * Manual mock for @aws-lambda-powertools/logger
  */
-export class Logger {
-  info = jest.fn();
-  error = jest.fn();
-  warn = jest.fn();
-  debug = jest.fn();
-  addContext = jest.fn();
-}
 
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+const noOp = () => { };
+
+export class Logger {
+  info = noOp;
+  error = noOp;
+  warn = noOp;
+  debug = noOp;
+  addContext = noOp;
+}
