@@ -164,9 +164,23 @@ All 89 tests passing ✓
 
 ### Using AWS CDK
 
-The API is deployed using AWS CDK with configuration-driven Lambda functions defined in `lambdas.yml`.
+#### One time setup
+1. Create a new root account for the new application
+
+2. Bootstrap the account
+```
+cdk bootstrap aws://MGMT_ACCOUNT_ID/us-east-1 
+```
+
+3. Update the org-stack for your specific needs
+
+4. Deploy the org-stack
+```
+cdk deploy OrgStack 
+```
 
 #### Lambda Configuration
+The API is deployed using AWS CDK with configuration-driven Lambda functions defined in `lambdas.yml`.
 
 Lambda functions are defined in `lambdas.yml` in the api directory (`apps/api/lambdas.yml`).
 
