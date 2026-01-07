@@ -22,4 +22,3 @@ runs:
       if: inputs.skip-tests != 'true'
       shell: bash
       run: npm run test
-
