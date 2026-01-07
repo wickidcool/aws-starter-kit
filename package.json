@@ -89,7 +89,7 @@
     "@typescript-eslint/parser": "^8.48.0",
     "@vitejs/plugin-react": "^5.1.1",
     "aws-cdk": "^2.1100.1",
-    "aws-cdk-lib": "^2.233.1",
+    "aws-cdk-lib": "^2.224.0",
     "babel-plugin-module-resolver": "^5.0.0",
     "babel-preset-expo": "^11.0.0",
     "constructs": "^10.4.3",
