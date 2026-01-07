@@ -15,9 +15,6 @@ inputs:
   environment:
     description: "Deployment environment (dev, qa, prod)"
     required: true
-  ssm-parameter-prefix:
-    description: "SSM parameter prefix for CloudFront key pair"
-    required: true
 
 runs:
   using: "composite"
