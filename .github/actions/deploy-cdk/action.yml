@@ -13,7 +13,7 @@ inputs:
     required: false
     default: "us-east-2"
   environment:
-    description: "Deployment environment (dev, qa, prod)"
+    description: "Deployment environment (dev, stage, prod)"
     required: true
 
 runs:

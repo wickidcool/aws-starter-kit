@@ -46,8 +46,8 @@ jobs:
   deploy-qa:
     needs: [validate, test]
     runs-on: ubuntu-latest
-    name: Deploy to QA
-    environment: qa
+    name: Deploy to Stage
+    environment: stage
 
     steps:
       - name: Checkout code
@@ -68,4 +68,4 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           environment: qa
-          ssm-parameter-prefix: /construction-app-qa
+          ssm-parameter-prefix: /construction-app-stage
