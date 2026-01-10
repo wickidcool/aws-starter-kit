@@ -4,7 +4,7 @@ This directory contains AWS CDK infrastructure code for deploying the AWS Starte
 
 ## Architecture
 
-The infrastructure is split into two CDK stacks:
+The infrastructure is split into three CDK stacks:
 
 ### 1. StaticStack - Core Infrastructure
 
@@ -49,6 +49,39 @@ Creates Lambda functions and API Gateway integrations based on `lambdas.yml`:
   - CORS support
   - Lambda proxy integration
   - Nested resource paths supported
+
+### 3. DeploymentUserStack - GitHub Actions IAM User
+
+Creates IAM users for GitHub Actions deployments with least-privilege permissions:
+
+- **IAM User** (`github-deploy-{env}`)
+  - CloudFormation (stack management - specific actions only)
+  - CloudFront (list distributions, create invalidations)
+  - SSM Parameter Store (read CDK bootstrap parameters)
+  - S3 (CDK assets and web deployment - scoped to account)
+  - KMS (S3 encryption via service)
+  - IAM PassRole (for CDK CloudFormation execution role)
+  - STS (GetCallerIdentity for CDK operations)
+
+- **Secrets Manager**
+  - Access keys stored in `github-deploy-credentials-{env}`
+
+**Deploy the deployment user:**
+
+```bash
+cd apps/api/cdk
+
+# Deploy to dev account
+npx cdk deploy AwsStarterKit-DeployUser-dev -c environment=dev
+```
+
+**Retrieve credentials:**
+
+```bash
+aws secretsmanager get-secret-value \
+  --secret-id github-deploy-credentials-dev \
+  --query SecretString --output text | jq
+```
 
 ## Configuration
 
@@ -148,6 +181,7 @@ npm run cdk:deploy
 This will deploy:
 1. `AwsStarterKit-Static-dev` - CloudFront, S3, API Gateway
 2. `AwsStarterKit-Users-dev` - Lambda functions
+3. `AwsStarterKit-DeployUser-dev` - GitHub Actions IAM user
 
 Deploy to a specific environment:
 
@@ -222,6 +256,13 @@ Example:
 - `GetUsersArn`
 - `CreateUserArn`
 - `UpdateUserArn`
+
+### DeploymentUserStack Outputs
+
+- `DeployUserName`: IAM user name
+- `DeployUserArn`: IAM user ARN
+- `CredentialsSecretArn`: Secrets Manager ARN containing credentials
+- `AccessKeyId`: Access Key ID (secret key in Secrets Manager)
 
 ## Deployment Workflow
 

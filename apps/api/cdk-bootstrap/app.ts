@@ -8,18 +8,18 @@ const appName = 'AwsStarterKit';
 /**
  * AWS CDK App for AWS Starter Kit Organization Bootstrap
  *
- * This app creates the AWS Organizations infrastructure including:
+ * This app creates AWS Organizations infrastructure (OrgStack):
  * - AWS Organization
  * - Organizational Units (nonprod, prod)
  * - AWS Accounts (dev, stage, prod)
  *
- * Required context parameters:
- * - devEmail: Email for the dev account
- * - stageEmail: Email for the stage account
- * - prodEmail: Email for the prod account
+ * Deploy from the management account:
+ *   npx cdk deploy AwsStarterKit-Org \
+ *     -c devEmail=dev@example.com \
+ *     -c stageEmail=stage@example.com \
+ *     -c prodEmail=prod@example.com
  *
- * Example usage:
- * npx cdk deploy -c devEmail=dev@example.com -c stageEmail=stage@example.com -c prodEmail=prod@example.com
+ * Note: GitHub deployment users are now managed in the main CDK app (apps/api/cdk).
  */
 const app = new cdk.App();
 

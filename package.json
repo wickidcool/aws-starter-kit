@@ -27,7 +27,7 @@
     "test:coverage": "NODE_OPTIONS='--localstorage-file=/tmp/jest-localstorage' nx run-many --target=test --all --coverage",
     "test:unit": "NODE_OPTIONS='--localstorage-file=/tmp/jest-localstorage' nx run-many --target=test --all",
     "graph": "nx graph",
-    "cdk:org": "cd apps/api/cdk-bootstrap && cdk deploy -c devEmail=al+starter+dev@wickidcool.com -c stageEmail=al+starter+stage@wickidcool.com -c prodEmail=al+starter+prod@wickidcool.com",
+    "cdk:org": "cd apps/api/cdk-bootstrap && cdk deploy -c devEmail=al+starter+dev@wickidcool.com -c stageEmail=al+starter+stage@wickidcool.com -c prodEmail=al+starter+prod@wickidcool.com --all",
     "cdk:synth": "cd apps/api/cdk && cdk synth",
     "cdk:deploy": "cd apps/api/cdk && cdk deploy --all",
     "cdk:deploy:prod": "cd apps/api/cdk && cdk deploy -c environment=prod",
