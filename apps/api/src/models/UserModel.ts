@@ -1,6 +1,5 @@
-import { DynamoModel, BaseModel } from '../data/DynamoModel';
+import { DynamoModel, BaseModel, generateUUID } from '@aws-starter-kit/dynamo-client';
 import type { User as UserType } from '@aws-starter-kit/common-types';
-import { generateUUID } from '../utils/common/helpers';
 
 /**
  * User interface extending BaseModel for DynamoDB

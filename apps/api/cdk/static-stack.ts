@@ -133,6 +133,25 @@ export class StaticStack extends cdk.Stack {
       queryStringBehavior: cloudfront.OriginRequestQueryStringBehavior.all(),
     });
 
+    // Create CloudFront function to rewrite /api to the environment stage
+    const apiRewriteFunction = new cloudfront.Function(this, 'ApiRewriteFunction', {
+      code: cloudfront.FunctionCode.fromInline(`
+  function handler(event) {
+      var request = event.request;
+      var uri = request.uri;
+
+      // Only rewrite if URI starts with /api
+      if (uri.indexOf('/api') === 0) {
+          request.uri = uri.replace('/api', '/${environmentName}');
+      }
+
+      return request;
+  }
+        `),
+      functionName: `${environmentName}-api-rewrite-function`,
+      comment: `Rewrites /api requests to /${environmentName} stage for API Gateway`
+    });
+
     // Create CloudFront distribution
     this.distribution = new cloudfront.Distribution(this, 'Distribution', {
       comment: `AWS Starter Kit - ${environmentName}`,
@@ -161,6 +180,11 @@ export class StaticStack extends cdk.Stack {
           compress: true,
           cachePolicy: apiCachePolicy,
           originRequestPolicy: apiOriginRequestPolicy,
+          // Add the function association for URL rewriting
+          functionAssociations: [{
+            function: apiRewriteFunction,
+            eventType: cloudfront.FunctionEventType.VIEWER_REQUEST
+          }]
         },
       },
 

@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@aws-starter-kit/common-types": ["packages/common-types/src/index.ts"],
-      "@aws-starter-kit/api-client": ["packages/api-client/src/index.ts"]
+      "@aws-starter-kit/api-client": ["packages/api-client/src/index.ts"],
+      "@aws-starter-kit/dynamo-client": ["packages/dynamo-client/src/index.ts"]
     },
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,

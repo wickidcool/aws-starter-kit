@@ -1,0 +1,13 @@
+{
+  "name": "@aws-starter-kit/dynamo-client",
+  "version": "1.0.0",
+  "description": "DynamoDB model base classes for AWS Starter Kit",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "type": "module",
+  "peerDependencies": {
+    "@aws-lambda-powertools/logger": "^2.0.0",
+    "@aws-sdk/client-dynamodb": "^3.0.0",
+    "@aws-sdk/util-dynamodb": "^3.0.0"
+  }
+}
