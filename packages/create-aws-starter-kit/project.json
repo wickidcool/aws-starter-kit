@@ -1,0 +1,33 @@
+{
+  "name": "create-aws-starter-kit",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/create-aws-starter-kit/src",
+  "projectType": "library",
+  "tags": ["type:cli"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{projectRoot}/dist"],
+      "options": {
+        "outputPath": "packages/create-aws-starter-kit/dist",
+        "main": "packages/create-aws-starter-kit/src/index.ts",
+        "tsConfig": "packages/create-aws-starter-kit/tsconfig.json"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/create-aws-starter-kit/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/packages/create-aws-starter-kit"],
+      "options": {
+        "jestConfig": "packages/create-aws-starter-kit/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}
