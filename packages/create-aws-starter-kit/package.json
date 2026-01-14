@@ -1,0 +1,28 @@
+{
+  "name": "create-aws-starter-kit",
+  "version": "0.0.1",
+  "description": "CLI tool to scaffold AWS Starter Kit projects",
+  "type": "module",
+  "main": "./dist/index.js",
+  "bin": {
+    "create-aws-starter-kit": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "aws",
+    "starter-kit",
+    "cli",
+    "scaffold",
+    "nx",
+    "monorepo"
+  ],
+  "license": "ISC"
+}
