@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-console.log('create-aws-starter-kit - AWS Starter Kit Generator');
+import { run } from './cli.js';
 
-process.exit(0);
+run();
