@@ -1,6 +1,8 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import pc from 'picocolors';
+import { runWizard } from './wizard.js';
 
 /**
  * Get the version from package.json
@@ -44,15 +46,13 @@ function printWelcome(): void {
 ║       AWS Starter Kit Project Generator               ║
 ║                                                       ║
 ╚═══════════════════════════════════════════════════════╝
-
-Interactive wizard coming soon...
 `.trim());
 }
 
 /**
  * Parse command line arguments and run the CLI
  */
-export function run(): void {
+export async function run(): Promise<void> {
   const args = process.argv.slice(2);
 
   // Check for --help or -h
@@ -67,7 +67,25 @@ export function run(): void {
     process.exit(0);
   }
 
-  // Default: show welcome banner and placeholder
+  // Default: run interactive wizard
   printWelcome();
+  console.log('');  // blank line after banner
+
+  const config = await runWizard();
+
+  if (!config) {
+    console.log('\nNo configuration collected. Exiting.');
+    process.exit(1);
+  }
+
+  // Display collected config (generation engine will use this later)
+  console.log('');
+  console.log(pc.green('✔') + ' Configuration collected:');
+  console.log(`  Project: ${pc.cyan(config.projectName)}`);
+  console.log(`  Platforms: ${pc.cyan(config.platforms.join(', '))}`);
+  console.log(`  AWS Region: ${pc.cyan(config.awsRegion)}`);
+  console.log('');
+  console.log(pc.yellow('Project generation coming in Phase 4...'));
+
   process.exit(0);
 }
