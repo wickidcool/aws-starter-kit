@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "description": "CLI tool to scaffold AWS Starter Kit projects",
   "type": "module",
-  "main": "./dist/index.js",
+  "main": "./dist/src/index.js",
   "bin": {
-    "create-aws-starter-kit": "./dist/index.js"
+    "create-aws-starter-kit": "./dist/src/index.js"
   },
   "scripts": {
     "build": "tsc"
