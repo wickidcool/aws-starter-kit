@@ -11,7 +11,7 @@ None
 ## Phases
 
 - [ ] **Phase 1: CLI Foundation** - Set up CLI package with command parsing
-- [ ] **Phase 1.1: Address Codebase Concerns** - Fix tech debt before templating (INSERTED)
+- [x] **Phase 1.1: Address Codebase Concerns** - Fix tech debt before templating (INSERTED)
 - [ ] **Phase 2: Interactive Wizard** - Implement prompts for configuration
 - [ ] **Phase 3: Template System** - Create template files with placeholders
 - [ ] **Phase 4: Generation Engine** - Build file copying and replacement logic
@@ -116,7 +116,7 @@ Plans:
 | Phase                      | Plans Complete | Status      | Completed |
 | -------------------------- | -------------- | ----------- | --------- |
 | 1. CLI Foundation          | 0/2            | Not started | -         |
-| 1.1 Codebase Concerns      | 1/2            | In progress | -         |
+| 1.1 Codebase Concerns      | 2/2            | Complete    | 2026-01-13 |
 | 2. Interactive Wizard      | 0/3            | Not started | -         |
 | 3. Template System    | 0/3            | Not started | -         |
 | 4. Generation Engine  | 0/3            | Not started | -         |
