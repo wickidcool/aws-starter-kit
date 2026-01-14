@@ -10,7 +10,7 @@ None
 
 ## Phases
 
-- [ ] **Phase 1: CLI Foundation** - Set up CLI package with command parsing
+- [x] **Phase 1: CLI Foundation** - Set up CLI package with command parsing
 - [x] **Phase 1.1: Address Codebase Concerns** - Fix tech debt before templating (INSERTED)
 - [ ] **Phase 2: Interactive Wizard** - Implement prompts for configuration
 - [ ] **Phase 3: Template System** - Create template files with placeholders
@@ -30,7 +30,7 @@ None
 Plans:
 
 - [x] 01-01: Package setup and bin configuration
-- [ ] 01-02: Command parsing and help text
+- [x] 01-02: Command parsing and help text
 
 ### Phase 1.1: Address Codebase Concerns (INSERTED)
 
@@ -115,7 +115,7 @@ Plans:
 
 | Phase                      | Plans Complete | Status      | Completed |
 | -------------------------- | -------------- | ----------- | --------- |
-| 1. CLI Foundation          | 1/2            | In progress | -         |
+| 1. CLI Foundation          | 2/2            | Complete    | 2026-01-14 |
 | 1.1 Codebase Concerns      | 2/2            | Complete    | 2026-01-13 |
 | 2. Interactive Wizard      | 0/3            | Not started | -         |
 | 3. Template System    | 0/3            | Not started | -         |
