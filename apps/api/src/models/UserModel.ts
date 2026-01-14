@@ -1,4 +1,4 @@
-import { DynamoModel, BaseModel, generateUUID } from '@aws-starter-kit/dynamo-client';
+import { DynamoModel, BaseModel, generateUUID } from '../lib/dynamo';
 import type { User as UserType } from '@aws-starter-kit/common-types';
 
 /**

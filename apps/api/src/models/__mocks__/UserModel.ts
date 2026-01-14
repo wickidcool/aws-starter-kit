@@ -2,7 +2,7 @@
  * Mock for UserDynamoModel
  * Used in tests to avoid DynamoDB dependencies
  */
-import type { BaseModel } from '@aws-starter-kit/dynamo-client';
+import type { BaseModel } from '../../lib/dynamo';
 
 // This file is only used in test environments where jest is available
 declare const jest: { fn: () => unknown };

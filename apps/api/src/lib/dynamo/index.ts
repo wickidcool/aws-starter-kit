@@ -1,7 +1,5 @@
 /**
- * @aws-starter-kit/dynamo-client
- *
- * DynamoDB model base classes for AWS Starter Kit
+ * DynamoDB model base classes
  * Provides abstract base class for DynamoDB CRUD operations with GSI support
  */
 
