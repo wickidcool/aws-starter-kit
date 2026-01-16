@@ -5,28 +5,29 @@
 See: .planning/PROJECT.md (updated 2026-01-13)
 
 **Core value:** Run it, answer questions, have a working project immediately
-**Current focus:** Phase 5 — Feature Toggles
+**Current focus:** Phase 6 — Polish & Publish
 
 ## Current Position
 
-Phase: 5 of 6 (Feature Toggles) - COMPLETE
+Phase: 6 of 6 (Polish & Publish) - COMPLETE
 Plan: 3 of 3 in current phase - COMPLETE
-Status: Plan 05-03 complete, Phase 05 finished
-Last activity: 2026-01-15 — Completed 05-03-PLAN.md
+Status: Phase 06 complete, Milestone complete
+Last activity: 2026-01-16 — Completed 06-03-PLAN.md
 
-Progress: ██████████ 100% (Phase 05)
+Progress: ████████████████████ 100% (17/17 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 14
-- Average duration: 7 min
-- Total execution time: 1h 38m
+- Total plans completed: 16
+- Average duration: 6 min
+- Total execution time: 1h 40m
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
+| 6 | 2 | 2 min | 1 min |
 | 5 | 3 | 11 min | 3.7 min |
 | 4 | 3 | 12 min | 4 min |
 | 3 | 3 | 57 min | 19 min |
@@ -35,8 +36,8 @@ Progress: ██████████ 100% (Phase 05)
 | 1 | 2 | 5 min | 2.5 min |
 
 **Recent Trend:**
-- Last 5 plans: 05-03 (4 min), 05-02 (3 min), 05-01 (4 min), 04-03 (4 min), 04-02 (4 min)
-- Trend: Consistent fast execution for focused implementation plans
+- Last 5 plans: 06-02 (1 min), 05-03 (4 min), 05-02 (3 min), 05-01 (4 min), 04-03 (4 min)
+- Trend: Documentation plans executing very quickly
 
 ## Accumulated Context
 
@@ -47,6 +48,8 @@ Recent decisions affecting current work:
 
 | Phase | Decision | Rationale |
 |-------|----------|-----------|
+| 6 | Link to generated README for post-gen docs | Avoid duplicating docs in CLI vs generated project |
+| 6 | Note Node 25+ compatibility in requirements | Known Jest issues documented in CLAUDE.md |
 | 3 | Use .template extension for project.json | Prevents Nx workspace detection conflicts |
 | 3 | Double-brace {{TOKEN}} syntax | Distinct from JS/EJS/Mustache, easy regex replacement |
 | 2 | Added @types/validate-npm-package-name | TypeScript requires type definitions for the package |
@@ -69,7 +72,7 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-01-15
-Stopped at: Completed 05-03-PLAN.md (Phase 05 complete)
+Last session: 2026-01-16
+Stopped at: Completed 06-02-PLAN.md
 Resume file: None
-Next: Phase 06 (Documentation & Polish)
+Next: 06-03 (npm publish setup)

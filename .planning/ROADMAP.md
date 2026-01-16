@@ -107,7 +107,7 @@ Plans:
 Plans:
 
 - [ ] 06-01: CLI tests
-- [ ] 06-02: README and documentation
+- [x] 06-02: README and documentation
 - [ ] 06-03: npm publish setup
 
 ## Progress
@@ -120,4 +120,4 @@ Plans:
 | 3. Template System         | 3/3            | Complete    | 2026-01-15 |
 | 4. Generation Engine       | 3/3            | Complete    | 2026-01-15 |
 | 5. Feature Toggles         | 3/3            | Complete    | 2026-01-15 |
-| 6. Polish & Publish        | 0/3            | Not started | -         |
+| 6. Polish & Publish        | 2/3            | In progress | -         |
