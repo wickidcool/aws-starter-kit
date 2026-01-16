@@ -28,6 +28,16 @@
         "jestConfig": "packages/create-aws-starter-kit/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "prepublish": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "nx build create-aws-starter-kit",
+          "cd packages/create-aws-starter-kit && npm pack --dry-run"
+        ],
+        "parallel": false
+      }
     }
   }
 }
