@@ -5,10 +5,11 @@ import { projectNamePrompt } from './prompts/project-name.js';
 import { platformsPrompt } from './prompts/platforms.js';
 import { featuresPrompt } from './prompts/features.js';
 import { awsRegionPrompt } from './prompts/aws-config.js';
+import { themePrompt } from './prompts/theme.js';
 
 export async function runWizard(): Promise<ProjectConfig | null> {
   const response = await prompts(
-    [projectNamePrompt, platformsPrompt, featuresPrompt, awsRegionPrompt],
+    [projectNamePrompt, platformsPrompt, featuresPrompt, awsRegionPrompt, themePrompt],
     {
       onCancel: () => {
         console.log(`\n${pc.red('✖')} Setup cancelled`);
@@ -18,7 +19,7 @@ export async function runWizard(): Promise<ProjectConfig | null> {
   );
 
   // Validate all required fields present
-  if (!response.projectName || !response.platforms?.length || !response.awsRegion) {
+  if (!response.projectName || !response.platforms?.length || !response.awsRegion || !response.brandColor) {
     return null;
   }
 
