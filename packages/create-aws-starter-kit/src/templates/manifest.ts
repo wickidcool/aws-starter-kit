@@ -33,6 +33,7 @@ export function deriveTokenValues(config: ProjectConfig): TokenValues {
     PROJECT_NAME_TITLE: toTitleCase(config.projectName),
     AWS_REGION: config.awsRegion,
     PACKAGE_SCOPE: `@${config.projectName}`,
+    BRAND_COLOR: config.brandColor,
   };
 }
 

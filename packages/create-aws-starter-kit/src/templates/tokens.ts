@@ -19,6 +19,8 @@ export const TOKENS = {
   AWS_REGION: '{{AWS_REGION}}',
   /** Package scope derived from project name (e.g., @my-awesome-app) */
   PACKAGE_SCOPE: '{{PACKAGE_SCOPE}}',
+  /** Brand color for theme (e.g., blue, purple, teal, green, orange) */
+  BRAND_COLOR: '{{BRAND_COLOR}}',
 } as const;
 
 /** Regex pattern to match any {{TOKEN_NAME}} placeholder */

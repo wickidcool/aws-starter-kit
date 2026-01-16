@@ -7,6 +7,7 @@ export interface TokenValues {
   PROJECT_NAME_TITLE: string;
   AWS_REGION: string;
   PACKAGE_SCOPE: string;
+  BRAND_COLOR: string;
 }
 
 /** Platform identifiers for conditional templates */
