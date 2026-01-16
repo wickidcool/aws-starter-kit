@@ -53,12 +53,14 @@ export const templateManifest: TemplateManifest = {
     { src: 'root/.gitignore', dest: '.gitignore' },
     { src: 'packages/common-types', dest: 'packages/common-types' },
     { src: 'packages/api-client', dest: 'packages/api-client' },
-    { src: '.vscode', dest: '.vscode' },
-    { src: '.github', dest: '.github' },
   ],
   byPlatform: {
     web: [{ src: 'apps/web', dest: 'apps/web' }],
     mobile: [{ src: 'apps/mobile', dest: 'apps/mobile' }],
     api: [{ src: 'apps/api', dest: 'apps/api' }],
+  },
+  byFeature: {
+    'github-actions': [{ src: '.github', dest: '.github' }],
+    'vscode-config': [{ src: '.vscode', dest: '.vscode' }],
   },
 };
