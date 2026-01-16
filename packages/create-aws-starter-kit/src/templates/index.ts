@@ -7,4 +7,4 @@ export type {
   TemplateManifest,
   DeriveTokenValues,
 } from './types.js';
-export { deriveTokenValues } from './manifest.js';
+export { deriveTokenValues, templateManifest } from './manifest.js';
