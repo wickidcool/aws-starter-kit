@@ -48,6 +48,8 @@ Recent decisions affecting current work:
 
 | Phase | Decision | Rationale |
 |-------|----------|-----------|
+| 6 | Exclude templates/ from test discovery | Template files contain tokens that break TypeScript |
+| 6 | Suppress ts-jest warning via ignoreCodes | IsolatedModules breaks ESM imports; warning is benign |
 | 6 | Keep package unscoped as create-aws-starter-kit | Better npx compatibility |
 | 6 | Link to generated README for post-gen docs | Avoid duplicating docs in CLI vs generated project |
 | 6 | Note Node 25+ compatibility in requirements | Known Jest issues documented in CLAUDE.md |
