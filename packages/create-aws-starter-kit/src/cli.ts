@@ -1,8 +1,9 @@
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import pc from 'picocolors';
 import { runWizard } from './wizard.js';
+import { generateProject } from './generator/index.js';
 
 /**
  * Get the version from package.json
@@ -50,6 +51,38 @@ function printWelcome(): void {
 }
 
 /**
+ * Print post-generation instructions
+ */
+function printNextSteps(projectName: string, platforms: string[]): void {
+  console.log('');
+  console.log(pc.bold('Next steps:'));
+  console.log('');
+  console.log(`  ${pc.cyan('cd')} ${projectName}`);
+  console.log(`  ${pc.cyan('npm install')}`);
+  console.log('');
+
+  if (platforms.includes('web')) {
+    console.log(`  ${pc.gray('# Start web app')}`);
+    console.log(`  ${pc.cyan('npm run web')}`);
+    console.log('');
+  }
+
+  if (platforms.includes('mobile')) {
+    console.log(`  ${pc.gray('# Start mobile app')}`);
+    console.log(`  ${pc.cyan('npm run mobile')}`);
+    console.log('');
+  }
+
+  if (platforms.includes('api')) {
+    console.log(`  ${pc.gray('# Deploy API')}`);
+    console.log(`  ${pc.cyan('npm run cdk:deploy')}`);
+    console.log('');
+  }
+
+  console.log(pc.gray('Happy coding!'));
+}
+
+/**
  * Parse command line arguments and run the CLI
  */
 export async function run(): Promise<void> {
@@ -74,18 +107,33 @@ export async function run(): Promise<void> {
   const config = await runWizard();
 
   if (!config) {
-    console.log('\nNo configuration collected. Exiting.');
+    console.log('\nProject creation cancelled.');
     process.exit(1);
   }
 
-  // Display collected config (generation engine will use this later)
+  // Determine output directory
+  const outputDir = resolve(process.cwd(), config.projectName);
+
+  // Check if directory already exists
+  if (existsSync(outputDir)) {
+    console.log('');
+    console.log(pc.red('Error:') + ` Directory ${pc.cyan(config.projectName)} already exists.`);
+    console.log('Please choose a different project name or remove the existing directory.');
+    process.exit(1);
+  }
+
+  // Create project directory
+  mkdirSync(outputDir, { recursive: true });
+
+  // Generate project
   console.log('');
-  console.log(pc.green('✔') + ' Configuration collected:');
-  console.log(`  Project: ${pc.cyan(config.projectName)}`);
-  console.log(`  Platforms: ${pc.cyan(config.platforms.join(', '))}`);
-  console.log(`  AWS Region: ${pc.cyan(config.awsRegion)}`);
+  await generateProject(config, outputDir);
+
+  // Success message and next steps
   console.log('');
-  console.log(pc.yellow('Project generation coming in Phase 4...'));
+  console.log(pc.green('✔') + ` Created ${pc.bold(config.projectName)} successfully!`);
+
+  printNextSteps(config.projectName, config.platforms);
 
   process.exit(0);
 }
