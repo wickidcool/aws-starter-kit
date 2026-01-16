@@ -67,7 +67,7 @@ Plans:
 Plans:
 
 - [x] 03-01: Define placeholder token syntax
-- [ ] 03-02: Create template files from existing code
+- [x] 03-02: Create template files from existing code
 - [ ] 03-03: Platform-conditional templates
 
 ### Phase 4: Generation Engine
@@ -117,7 +117,7 @@ Plans:
 | 1. CLI Foundation          | 2/2            | Complete    | 2026-01-14 |
 | 1.1 Codebase Concerns      | 2/2            | Complete    | 2026-01-13 |
 | 2. Interactive Wizard      | 2/2            | Complete    | 2026-01-14 |
-| 3. Template System    | 1/3            | In progress | -         |
+| 3. Template System    | 2/3            | In progress | -         |
 | 4. Generation Engine  | 0/3            | Not started | -         |
 | 5. Feature Toggles    | 0/3            | Not started | -         |
 | 6. Polish & Publish   | 0/3            | Not started | -         |
