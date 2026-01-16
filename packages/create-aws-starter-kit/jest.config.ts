@@ -9,6 +9,9 @@ export default {
       {
         tsconfig: '<rootDir>/tsconfig.spec.json',
         useESM: true,
+        diagnostics: {
+          ignoreCodes: [151002], // Suppress hybrid module kind warning
+        },
       },
     ],
   },
