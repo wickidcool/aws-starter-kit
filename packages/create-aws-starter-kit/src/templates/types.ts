@@ -1,4 +1,4 @@
-import type { ProjectConfig } from '../types.js';
+import type { ProjectConfig, Feature } from '../types.js';
 
 /** Mapping of token names to their replacement values */
 export interface TokenValues {
@@ -28,7 +28,12 @@ export interface TemplateManifest {
   shared: TemplateFile[];
   /** Files grouped by platform */
   byPlatform: Record<Platform, TemplateFile[]>;
+  /** Files grouped by feature */
+  byFeature: Record<Feature, TemplateFile[]>;
 }
 
 /** Function to derive token values from ProjectConfig */
 export type DeriveTokenValues = (config: ProjectConfig) => TokenValues;
+
+/** Re-export Feature type for convenience */
+export type { Feature };
