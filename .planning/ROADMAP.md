@@ -52,7 +52,7 @@ Plans:
 **Plans**: 4
 
 Plans:
-- [ ] 08-01: CDK Cognito infrastructure + generator manifest (Wave 1)
+- [x] 08-01: CDK Cognito infrastructure + generator manifest (completed 2026-01-17)
 - [x] 08-02: Lambda authorizer middleware with aws-jwt-verify (completed 2026-01-17)
 - [x] 08-03: React auth hooks & provider with Amplify (completed 2026-01-17)
 - [ ] 08-04: Generator integration + Amplify config + tests (Wave 2)
@@ -90,6 +90,6 @@ Plans:
 | 5. Feature Toggles | v1.0 | 3/3 | Complete | 2026-01-15 |
 | 6. Polish & Publish | v1.0 | 3/3 | Complete | 2026-01-16 |
 | 7. Auth Wizard & Types | v1.1 | 1/1 | Complete | 2026-01-17 |
-| 8. Cognito Templates | v1.1 | 2/4 | In progress | - |
+| 8. Cognito Templates | v1.1 | 3/4 | In progress | - |
 | 9. Auth0 Templates | v1.1 | 0/? | Not started | - |
 | 10. Auth Integration | v1.1 | 0/? | Not started | - |
