@@ -10,6 +10,10 @@ describe('replaceTokens', () => {
     AWS_REGION: 'us-west-2',
     PACKAGE_SCOPE: '@my-awesome-app',
     BRAND_COLOR: 'blue',
+    AUTH_COGNITO: 'false',
+    AUTH_AUTH0: 'false',
+    AUTH_SOCIAL_LOGIN: 'false',
+    AUTH_MFA: 'false',
   };
 
   describe('single token replacement', () => {
@@ -41,6 +45,12 @@ describe('replaceTokens', () => {
       const content = 'color: {{BRAND_COLOR}}';
       const result = replaceTokens(content, mockTokens);
       expect(result).toBe('color: blue');
+    });
+
+    it('should replace AUTH_COGNITO token', () => {
+      const content = 'cognito: {{AUTH_COGNITO}}';
+      const result = replaceTokens(content, mockTokens);
+      expect(result).toBe('cognito: false');
     });
   });
 

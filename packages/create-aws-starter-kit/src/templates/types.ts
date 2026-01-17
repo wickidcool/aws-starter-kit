@@ -1,4 +1,4 @@
-import type { ProjectConfig, Feature } from '../types.js';
+import type { ProjectConfig, Feature, AuthProvider } from '../types.js';
 
 /** Mapping of token names to their replacement values */
 export interface TokenValues {
@@ -8,6 +8,10 @@ export interface TokenValues {
   AWS_REGION: string;
   PACKAGE_SCOPE: string;
   BRAND_COLOR: string;
+  AUTH_COGNITO: string;
+  AUTH_AUTH0: string;
+  AUTH_SOCIAL_LOGIN: string;
+  AUTH_MFA: string;
 }
 
 /** Platform identifiers for conditional templates */
@@ -31,10 +35,12 @@ export interface TemplateManifest {
   byPlatform: Record<Platform, TemplateFile[]>;
   /** Files grouped by feature */
   byFeature: Record<Feature, TemplateFile[]>;
+  /** Files grouped by auth provider */
+  byAuthProvider: Record<AuthProvider, TemplateFile[]>;
 }
 
 /** Function to derive token values from ProjectConfig */
 export type DeriveTokenValues = (config: ProjectConfig) => TokenValues;
 
-/** Re-export Feature type for convenience */
-export type { Feature };
+/** Re-export Feature and AuthProvider types for convenience */
+export type { Feature, AuthProvider };
