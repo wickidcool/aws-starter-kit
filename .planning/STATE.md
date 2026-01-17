@@ -2,26 +2,27 @@
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-01-13)
+See: .planning/PROJECT.md (updated 2026-01-16)
 
 **Core value:** Run it, answer questions, have a working project immediately
-**Current focus:** Phase 6 — Polish & Publish
+**Current focus:** v1.0 complete — ready for npm publish
 
 ## Current Position
 
+Milestone: v1.0 MVP - COMPLETE
 Phase: 6 of 6 (Polish & Publish) - COMPLETE
 Plan: 3 of 3 in current phase - COMPLETE
-Status: Phase 06 complete, Milestone complete
-Last activity: 2026-01-16 — Completed 06-03-PLAN.md
+Status: v1.0 milestone archived
+Last activity: 2026-01-16 — Completed v1.0 milestone
 
-Progress: ████████████████████ 100% (17/17 plans)
+Progress: ██████████ 100% (v1.0 MVP - 18/18 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 17
-- Average duration: 6 min
-- Total execution time: 1h 41m
+- Total plans completed: 18
+- Average duration: 5.6 min
+- Total execution time: ~1h 41m
 
 **By Phase:**
 
@@ -32,50 +33,36 @@ Progress: ████████████████████ 100% (17/
 | 4 | 3 | 12 min | 4 min |
 | 3 | 3 | 57 min | 19 min |
 | 2 | 2 | 7 min | 3.5 min |
-| 1.1 | 1 | 3 min | 3 min |
+| 1.1 | 2 | 3 min | 1.5 min |
 | 1 | 2 | 5 min | 2.5 min |
 
 **Recent Trend:**
-- Last 5 plans: 06-03 (1 min), 06-02 (1 min), 05-03 (4 min), 05-02 (3 min), 05-01 (4 min)
-- Trend: Configuration plans executing very quickly
+- Last 5 plans: 06-03, 06-02, 06-01 (parallel ~3 min total), 05-03, 05-02
+- Trend: Parallel execution effective for Wave 1 plans
 
 ## Accumulated Context
 
 ### Decisions
 
-Decisions are logged in PROJECT.md Key Decisions table.
-Recent decisions affecting current work:
-
-| Phase | Decision | Rationale |
-|-------|----------|-----------|
-| 6 | Exclude templates/ from test discovery | Template files contain tokens that break TypeScript |
-| 6 | Suppress ts-jest warning via ignoreCodes | IsolatedModules breaks ESM imports; warning is benign |
-| 6 | Keep package unscoped as create-aws-starter-kit | Better npx compatibility |
-| 6 | Link to generated README for post-gen docs | Avoid duplicating docs in CLI vs generated project |
-| 6 | Note Node 25+ compatibility in requirements | Known Jest issues documented in CLAUDE.md |
-| 3 | Use .template extension for project.json | Prevents Nx workspace detection conflicts |
-| 3 | Double-brace {{TOKEN}} syntax | Distinct from JS/EJS/Mustache, easy regex replacement |
-| 2 | Added @types/validate-npm-package-name | TypeScript requires type definitions for the package |
-| 1.1 | Keep '*' as default CORS origin | Development compatibility while allowing production restriction |
-| 1.1 | Use ALLOWED_ORIGINS env var | Standard naming for CORS origin configuration |
-| 1 | Use NodeNext module resolution | Required for ESM hashbang compatibility |
-| 1 | Output to dist/src/ path | Matches Nx tsc executor behavior |
+All decisions logged in PROJECT.md Key Decisions table with outcomes.
+v1.0 milestone complete — all decisions marked ✓ Good.
 
 ### Deferred Issues
 
-None yet.
+None.
 
 ### Blockers/Concerns
 
-None yet.
+None.
 
 ### Roadmap Evolution
 
-- Phase 1.1 inserted after Phase 1: Address codebase concerns (URGENT) — fix tech debt before templating
+- Phase 1.1 inserted after Phase 1: Address codebase concerns — fixed tech debt before templating
+- v1.0 milestone complete with 7 phases, 18 plans
 
 ## Session Continuity
 
 Last session: 2026-01-16
-Stopped at: Completed 06-03-PLAN.md (Phase 06 complete, Milestone complete)
+Stopped at: v1.0 milestone archived
 Resume file: None
-Next: /gsd:complete-milestone
+Next: npm publish (`npm adduser` then `npm publish` in packages/create-aws-starter-kit)
