@@ -10,17 +10,17 @@ See: .planning/PROJECT.md (updated 2026-01-16)
 ## Current Position
 
 Milestone: v1.1 Authentication
-Phase: 7 of 10 (Auth Wizard & Types)
-Plan: 1 of 1 in current phase
-Status: Phase complete
-Last activity: 2026-01-17 — Completed 07-01-PLAN.md
+Phase: 8 of 10 (Cognito Templates)
+Plan: 2 of 4 in current phase
+Status: In progress
+Last activity: 2026-01-17 — Completed 08-02-PLAN.md
 
-Progress: █░░░░░░░░░ 10% (v1.1 Authentication - 1/? plans)
+Progress: ██░░░░░░░░ 20% (v1.1 Authentication - 3/? plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 18 (v1.0)
+- Total plans completed: 18 (v1.0) + 3 (v1.1)
 - Average duration: 5.6 min
 - Total execution time: ~1h 41m
 
@@ -47,6 +47,7 @@ All v1.0 decisions logged in PROJECT.md Key Decisions table.
 |-------|----------|-----------|
 | 7 | Auth provider defaults to 'none' | Auth is optional scaffolding |
 | 7 | Auth features prompt conditional | Only show when provider selected |
+| 8-02 | aws-jwt-verify in root package.json | Follow existing monorepo pattern where Lambda deps are hoisted |
 
 ### Deferred Issues
 
@@ -65,5 +66,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-01-17
-Stopped at: Completed 07-01-PLAN.md
+Stopped at: Completed 08-02-PLAN.md
 Resume file: None
