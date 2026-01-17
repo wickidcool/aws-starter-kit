@@ -1,0 +1,14 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "nx serve web",
+    "build": "nx build web",
+    "test": "nx test web"
+  },
+  "dependencies": {
+    "aws-amplify": "^6.0.0"
+  }
+}
