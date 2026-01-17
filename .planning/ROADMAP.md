@@ -11,6 +11,7 @@ None
 ## Milestones
 
 - ✅ **v1.0 MVP** — Phases 1-6 (shipped 2026-01-16) — [Full details](milestones/v1.0-ROADMAP.md)
+- 🚧 **v1.1 Authentication** — Phases 7-10 (in progress)
 
 ## Completed Milestones
 
@@ -29,6 +30,52 @@ None
 
 </details>
 
+### 🚧 v1.1 Authentication (In Progress)
+
+**Milestone Goal:** Add authentication scaffolding with choice between AWS Cognito and Auth0, with configurable features (basic auth, social logins, MFA)
+
+#### Phase 7: Auth Wizard & Types
+
+**Goal**: Add auth provider prompt, feature selection prompts, extend ProjectConfig with auth types
+**Depends on**: v1.0 complete
+**Research**: Unlikely (internal patterns - existing wizard code)
+**Plans**: TBD
+
+Plans:
+- [ ] 07-01: TBD (run /gsd:plan-phase 7 to break down)
+
+#### Phase 8: Cognito Templates
+
+**Goal**: CDK User Pool/Identity Pool infrastructure, Lambda authorizers, React auth hooks and components
+**Depends on**: Phase 7
+**Research**: Likely (AWS Cognito CDK patterns, current API)
+**Research topics**: AWS CDK Cognito constructs, User Pool configuration, Identity Pool setup, Lambda authorizer patterns
+**Plans**: TBD
+
+Plans:
+- [ ] 08-01: TBD
+
+#### Phase 9: Auth0 Templates
+
+**Goal**: Auth0 configuration files, React SDK integration, API middleware for token validation
+**Depends on**: Phase 7
+**Research**: Likely (Auth0 SDK integration, current docs)
+**Research topics**: Auth0 React SDK, API middleware patterns, Auth0 configuration management
+**Plans**: TBD
+
+Plans:
+- [ ] 09-01: TBD
+
+#### Phase 10: Auth Integration
+
+**Goal**: Wire auth into existing web/mobile/api templates, conditional generation logic based on auth selection
+**Depends on**: Phase 8, Phase 9
+**Research**: Unlikely (internal patterns - existing generation engine)
+**Plans**: TBD
+
+Plans:
+- [ ] 10-01: TBD
+
 ## Progress
 
 | Phase | Milestone | Plans Complete | Status | Completed |
@@ -40,3 +87,7 @@ None
 | 4. Generation Engine | v1.0 | 3/3 | Complete | 2026-01-15 |
 | 5. Feature Toggles | v1.0 | 3/3 | Complete | 2026-01-15 |
 | 6. Polish & Publish | v1.0 | 3/3 | Complete | 2026-01-16 |
+| 7. Auth Wizard & Types | v1.1 | 0/? | Not started | - |
+| 8. Cognito Templates | v1.1 | 0/? | Not started | - |
+| 9. Auth0 Templates | v1.1 | 0/? | Not started | - |
+| 10. Auth Integration | v1.1 | 0/? | Not started | - |
