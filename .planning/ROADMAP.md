@@ -39,10 +39,10 @@ None
 **Goal**: Add auth provider prompt, feature selection prompts, extend ProjectConfig with auth types
 **Depends on**: v1.0 complete
 **Research**: Unlikely (internal patterns - existing wizard code)
-**Plans**: TBD
+**Plans**: 1
 
 Plans:
-- [ ] 07-01: TBD (run /gsd:plan-phase 7 to break down)
+- [x] 07-01: Auth types, prompts, wizard integration (completed 2026-01-17)
 
 #### Phase 8: Cognito Templates
 
@@ -87,7 +87,7 @@ Plans:
 | 4. Generation Engine | v1.0 | 3/3 | Complete | 2026-01-15 |
 | 5. Feature Toggles | v1.0 | 3/3 | Complete | 2026-01-15 |
 | 6. Polish & Publish | v1.0 | 3/3 | Complete | 2026-01-16 |
-| 7. Auth Wizard & Types | v1.1 | 0/? | Not started | - |
+| 7. Auth Wizard & Types | v1.1 | 1/1 | Complete | 2026-01-17 |
 | 8. Cognito Templates | v1.1 | 0/? | Not started | - |
 | 9. Auth0 Templates | v1.1 | 0/? | Not started | - |
 | 10. Auth Integration | v1.1 | 0/? | Not started | - |

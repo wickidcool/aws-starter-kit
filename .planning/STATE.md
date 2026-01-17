@@ -11,11 +11,11 @@ See: .planning/PROJECT.md (updated 2026-01-16)
 
 Milestone: v1.1 Authentication
 Phase: 7 of 10 (Auth Wizard & Types)
-Plan: Not started
-Status: Ready to plan
-Last activity: 2026-01-17 — Milestone v1.1 created
+Plan: 1 of 1 in current phase
+Status: Phase complete
+Last activity: 2026-01-17 — Completed 07-01-PLAN.md
 
-Progress: ░░░░░░░░░░ 0% (v1.1 Authentication - 0/? plans)
+Progress: █░░░░░░░░░ 10% (v1.1 Authentication - 1/? plans)
 
 ## Performance Metrics
 
@@ -42,6 +42,12 @@ Progress: ░░░░░░░░░░ 0% (v1.1 Authentication - 0/? plans)
 
 All v1.0 decisions logged in PROJECT.md Key Decisions table.
 
+**v1.1 Decisions:**
+| Phase | Decision | Rationale |
+|-------|----------|-----------|
+| 7 | Auth provider defaults to 'none' | Auth is optional scaffolding |
+| 7 | Auth features prompt conditional | Only show when provider selected |
+
 ### Deferred Issues
 
 None.
@@ -59,5 +65,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-01-17
-Stopped at: Milestone v1.1 initialization
+Stopped at: Completed 07-01-PLAN.md
 Resume file: None
