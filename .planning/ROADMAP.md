@@ -48,12 +48,14 @@ Plans:
 
 **Goal**: CDK User Pool/Identity Pool infrastructure, Lambda authorizers, React auth hooks and components
 **Depends on**: Phase 7
-**Research**: Likely (AWS Cognito CDK patterns, current API)
-**Research topics**: AWS CDK Cognito constructs, User Pool configuration, Identity Pool setup, Lambda authorizer patterns
-**Plans**: TBD
+**Research**: Complete (AWS Cognito CDK patterns, aws-jwt-verify, Amplify v6)
+**Plans**: 4
 
 Plans:
-- [ ] 08-01: TBD
+- [ ] 08-01: CDK Cognito infrastructure + generator manifest (Wave 1)
+- [ ] 08-02: Lambda authorizer middleware with aws-jwt-verify (Wave 1)
+- [ ] 08-03: React auth hooks & provider with Amplify (Wave 1)
+- [ ] 08-04: Generator integration + Amplify config + tests (Wave 2)
 
 #### Phase 9: Auth0 Templates
 
@@ -88,6 +90,6 @@ Plans:
 | 5. Feature Toggles | v1.0 | 3/3 | Complete | 2026-01-15 |
 | 6. Polish & Publish | v1.0 | 3/3 | Complete | 2026-01-16 |
 | 7. Auth Wizard & Types | v1.1 | 1/1 | Complete | 2026-01-17 |
-| 8. Cognito Templates | v1.1 | 0/? | Not started | - |
+| 8. Cognito Templates | v1.1 | 0/4 | Planned | - |
 | 9. Auth0 Templates | v1.1 | 0/? | Not started | - |
 | 10. Auth Integration | v1.1 | 0/? | Not started | - |
