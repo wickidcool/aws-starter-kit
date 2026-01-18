@@ -5,7 +5,7 @@ import pc from 'picocolors';
 import { copyFileWithTokens, copyDirectoryWithTokens } from './copy-file.js';
 import { deriveTokenValues, templateManifest } from '../templates/index.js';
 import type { ProjectConfig } from '../types.js';
-import type { Platform, Feature, TemplateFile } from '../templates/types.js';
+import type { Platform, Feature, AuthProvider, TemplateFile } from '../templates/types.js';
 
 /**
  * Options for project generation
@@ -89,6 +89,17 @@ export async function generateProject(
     const featureEntries = templateManifest.byFeature[feature as Feature];
     if (featureEntries) {
       for (const entry of featureEntries) {
+        copyTemplateEntry(entry, templatesDir, outputDir, tokens);
+      }
+    }
+  }
+
+  // 4. Copy auth provider-specific files based on user selection
+  if (config.auth.provider !== 'none') {
+    onProgress(`  Adding ${config.auth.provider} authentication...`);
+    const authEntries = templateManifest.byAuthProvider[config.auth.provider as AuthProvider];
+    if (authEntries) {
+      for (const entry of authEntries) {
         copyTemplateEntry(entry, templatesDir, outputDir, tokens);
       }
     }
