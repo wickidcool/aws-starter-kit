@@ -11,18 +11,18 @@ See: .planning/PROJECT.md (updated 2026-01-16)
 
 Milestone: v1.1 Authentication
 Phase: 8 of 10 (Cognito Templates)
-Plan: 1 of 4 in current phase
-Status: In progress
-Last activity: 2026-01-17 — Completed 08-01-PLAN.md
+Plan: 4 of 4 in current phase
+Status: Phase complete
+Last activity: 2026-01-18 — Completed 08-04-PLAN.md
 
-Progress: ██░░░░░░░░ 20% (v1.1 Authentication - 2/? plans)
+Progress: ████░░░░░░ 40% (v1.1 Authentication - 5/? plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 20 (v1.0: 18, v1.1: 2)
-- Average duration: 5.4 min
-- Total execution time: ~1h 49m
+- Total plans completed: 23 (v1.0: 18, v1.1: 5)
+- Average duration: 5.2 min
+- Total execution time: ~2h 2m
 
 **By Phase (v1.0):**
 
@@ -41,7 +41,7 @@ Progress: ██░░░░░░░░ 20% (v1.1 Authentication - 2/? plans)
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 7 | 1 | 8 min | 8 min |
-| 8 | 1 | 4 min | 4 min |
+| 8 | 4 | 17 min | 4.3 min |
 
 ## Accumulated Context
 
@@ -56,6 +56,8 @@ All v1.0 decisions logged in PROJECT.md Key Decisions table.
 | 7 | Auth features prompt conditional | Only show when provider selected |
 | 8 | Comment-based conditionals for CDK templates | Generator strips {{#if}}/{{/if}} blocks |
 | 8 | Identity Pool only when social-login enabled | Reduces complexity for basic auth |
+| 8 | Amplify config uses environment variables | Security and flexibility |
+| 8 | Auth template copying follows existing patterns | Consistency with platform/feature handling |
 
 ### Deferred Issues
 
@@ -73,6 +75,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-01-17
-Stopped at: Completed 08-01-PLAN.md
+Last session: 2026-01-18
+Stopped at: Completed 08-04-PLAN.md (Phase 8 complete)
 Resume file: None
