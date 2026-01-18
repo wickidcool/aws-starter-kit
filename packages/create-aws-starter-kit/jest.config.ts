@@ -22,9 +22,11 @@ export default {
   moduleFileExtensions: ['ts', 'js'],
   coverageDirectory: '../../coverage/packages/create-aws-starter-kit',
   // Exclude template files from tests - they contain unprocessed tokens
+  // Exclude dist - compiled output should not be tested directly
   testPathIgnorePatterns: [
     '/node_modules/',
     '/templates/',
+    '/dist/',
   ],
   clearMocks: true,
   resetMocks: true,
