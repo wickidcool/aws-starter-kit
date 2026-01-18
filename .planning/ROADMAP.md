@@ -63,10 +63,12 @@ Plans:
 **Depends on**: Phase 7
 **Research**: Likely (Auth0 SDK integration, current docs)
 **Research topics**: Auth0 React SDK, API middleware patterns, Auth0 configuration management
-**Plans**: TBD
+**Plans**: 3
 
 Plans:
-- [ ] 09-01: TBD
+- [x] 09-01: Auth0 React provider & config templates (completed 2026-01-18)
+- [ ] 09-02: Auth0 API middleware templates
+- [ ] 09-03: Generator integration for Auth0
 
 #### Phase 10: Auth Integration
 
@@ -91,5 +93,5 @@ Plans:
 | 6. Polish & Publish | v1.0 | 3/3 | Complete | 2026-01-16 |
 | 7. Auth Wizard & Types | v1.1 | 1/1 | Complete | 2026-01-17 |
 | 8. Cognito Templates | v1.1 | 4/4 | Complete | 2026-01-18 |
-| 9. Auth0 Templates | v1.1 | 0/? | Not started | - |
+| 9. Auth0 Templates | v1.1 | 1/3 | In progress | - |
 | 10. Auth Integration | v1.1 | 0/? | Not started | - |
