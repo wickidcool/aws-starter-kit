@@ -42,9 +42,26 @@ describe('Generator', () => {
       expect(templateManifest.byAuthProvider.none.length).toBe(0);
     });
 
-    it('should have auth0 provider defined (for future use)', () => {
+    it('should have Auth0 auth templates defined', () => {
       expect(templateManifest.byAuthProvider.auth0).toBeDefined();
       expect(Array.isArray(templateManifest.byAuthProvider.auth0)).toBe(true);
+      expect(templateManifest.byAuthProvider.auth0.length).toBeGreaterThan(0);
+    });
+
+    it('should include Auth0 provider, config, and middleware in auth0 templates', () => {
+      const auth0Templates = templateManifest.byAuthProvider.auth0;
+      const hasProvider = auth0Templates.some(
+        (entry) => entry.src.includes('auth0-provider.tsx')
+      );
+      const hasConfig = auth0Templates.some(
+        (entry) => entry.src.includes('auth0-config.ts')
+      );
+      const hasMiddleware = auth0Templates.some(
+        (entry) => entry.src.includes('auth0-auth.ts')
+      );
+      expect(hasProvider).toBe(true);
+      expect(hasConfig).toBe(true);
+      expect(hasMiddleware).toBe(true);
     });
   });
 
@@ -146,6 +163,24 @@ describe('Generator', () => {
     it('should process auth templates when provider is cognito', () => {
       const config = createMockConfig({
         auth: { provider: 'cognito', features: [] },
+      });
+      // This tests the logic: if provider !== 'none', we should process templates
+      const shouldProcessAuth = config.auth.provider !== 'none';
+      expect(shouldProcessAuth).toBe(true);
+    });
+
+    it('should return templates for auth0 when auth0 provider selected', () => {
+      const config = createMockConfig({
+        auth: { provider: 'auth0', features: [] },
+      });
+      const authEntries = templateManifest.byAuthProvider[config.auth.provider];
+      expect(authEntries).toBeDefined();
+      expect(authEntries.length).toBeGreaterThan(0);
+    });
+
+    it('should process auth templates when provider is auth0', () => {
+      const config = createMockConfig({
+        auth: { provider: 'auth0', features: [] },
       });
       // This tests the logic: if provider !== 'none', we should process templates
       const shouldProcessAuth = config.auth.provider !== 'none';
