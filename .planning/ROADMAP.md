@@ -79,8 +79,8 @@ Plans:
 
 Plans:
 - [x] 10-01: Conditional block processing for generator (completed 2026-01-19)
-- [ ] 10-02: TBD
-- [ ] 10-03: TBD
+- [x] 10-02: Auth provider integration in App.tsx (completed 2026-01-19)
+- [x] 10-03: Protected endpoint example (completed 2026-01-19)
 - [ ] 10-04: TBD
 
 ## Progress
@@ -97,4 +97,4 @@ Plans:
 | 7. Auth Wizard & Types | v1.1 | 1/1 | Complete | 2026-01-17 |
 | 8. Cognito Templates | v1.1 | 4/4 | Complete | 2026-01-18 |
 | 9. Auth0 Templates | v1.1 | 3/3 | Complete | 2026-01-19 |
-| 10. Auth Integration | v1.1 | 1/4 | In progress | - |
+| 10. Auth Integration | v1.1 | 3/4 | In progress | - |
