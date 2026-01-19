@@ -71,6 +71,9 @@ export const templateManifest: TemplateManifest = {
   byAuthProvider: {
     cognito: [
       { src: 'apps/api/cdk/auth', dest: 'apps/api/cdk/auth' },
+      { src: 'apps/web/src/auth/cognito-provider.tsx', dest: 'apps/web/src/auth/cognito-provider.tsx' },
+      { src: 'apps/web/src/config/amplify-config.ts', dest: 'apps/web/src/config/amplify-config.ts' },
+      { src: 'apps/api/src/middleware/cognito-auth.ts', dest: 'apps/api/src/middleware/cognito-auth.ts' },
     ],
     auth0: [
       { src: 'apps/web/src/auth/auth0-provider.tsx', dest: 'apps/web/src/auth/auth0-provider.tsx' },
