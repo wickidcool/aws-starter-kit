@@ -2,74 +2,91 @@
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-01-13)
+See: .planning/PROJECT.md (updated 2026-01-19)
 
 **Core value:** Run it, answer questions, have a working project immediately
-**Current focus:** Phase 5 — Feature Toggles
+**Current focus:** None — awaiting next milestone
 
 ## Current Position
 
-Phase: 5 of 6 (Feature Toggles) - COMPLETE
-Plan: 3 of 3 in current phase - COMPLETE
-Status: Plan 05-03 complete, Phase 05 finished
-Last activity: 2026-01-15 — Completed 05-03-PLAN.md
+Milestone: v1.1 Authentication (COMPLETE)
+Phase: 10 of 10 (Auth Integration)
+Plan: 4 of 4 in current phase
+Status: MILESTONE COMPLETE
+Last activity: 2026-01-19 — Completed v1.1 milestone, archived to milestones/v1.1-ROADMAP.md
 
-Progress: ██████████ 100% (Phase 05)
+Progress: ██████████ 100% (v1.1 Authentication - 13/13 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 14
-- Average duration: 7 min
-- Total execution time: 1h 38m
+- Total plans completed: 30 (v1.0: 18, v1.1: 12)
+- Average duration: 5.2 min
+- Total execution time: ~2h 7m
 
-**By Phase:**
+**By Phase (v1.0):**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
+| 6 | 3 | 3 min | 1 min |
 | 5 | 3 | 11 min | 3.7 min |
 | 4 | 3 | 12 min | 4 min |
 | 3 | 3 | 57 min | 19 min |
 | 2 | 2 | 7 min | 3.5 min |
-| 1.1 | 1 | 3 min | 3 min |
+| 1.1 | 2 | 3 min | 1.5 min |
 | 1 | 2 | 5 min | 2.5 min |
 
-**Recent Trend:**
-- Last 5 plans: 05-03 (4 min), 05-02 (3 min), 05-01 (4 min), 04-03 (4 min), 04-02 (4 min)
-- Trend: Consistent fast execution for focused implementation plans
+**By Phase (v1.1):**
+
+| Phase | Plans | Total | Avg/Plan |
+|-------|-------|-------|----------|
+| 7 | 1 | 8 min | 8 min |
+| 8 | 4 | 17 min | 4.3 min |
+| 9 | 3 | 8 min | 2.7 min |
+| 10 | 4 | 8 min | 2 min |
 
 ## Accumulated Context
 
 ### Decisions
 
-Decisions are logged in PROJECT.md Key Decisions table.
-Recent decisions affecting current work:
+All v1.0 decisions logged in PROJECT.md Key Decisions table.
 
+**v1.1 Decisions:**
 | Phase | Decision | Rationale |
 |-------|----------|-----------|
-| 3 | Use .template extension for project.json | Prevents Nx workspace detection conflicts |
-| 3 | Double-brace {{TOKEN}} syntax | Distinct from JS/EJS/Mustache, easy regex replacement |
-| 2 | Added @types/validate-npm-package-name | TypeScript requires type definitions for the package |
-| 1.1 | Keep '*' as default CORS origin | Development compatibility while allowing production restriction |
-| 1.1 | Use ALLOWED_ORIGINS env var | Standard naming for CORS origin configuration |
-| 1 | Use NodeNext module resolution | Required for ESM hashbang compatibility |
-| 1 | Output to dist/src/ path | Matches Nx tsc executor behavior |
+| 7 | Auth provider defaults to 'none' | Auth is optional scaffolding |
+| 7 | Auth features prompt conditional | Only show when provider selected |
+| 8 | Comment-based conditionals for CDK templates | Generator strips {{#if}}/{{/if}} blocks |
+| 8 | Identity Pool only when social-login enabled | Reduces complexity for basic auth |
+| 8 | Amplify config uses environment variables | Security and flexibility |
+| 8 | Auth template copying follows existing patterns | Consistency with platform/feature handling |
+| 9 | Auth0 uses redirect-based auth (loginWithRedirect) | Auth0's standard flow via Universal Login |
+| 9 | confirmSignUp/forgotPassword throw unsupported errors | Auth0 handles these flows internally |
+| 9 | Auth0 middleware uses jose library directly | Lambda handlers don't use Express middleware |
+| 9 | Auth0 uses permissions claim for authorization | Auth0 RBAC model vs Cognito groups |
+| 10 | Token value must be exactly 'true' string | Matches how AUTH_COGNITO/AUTH_AUTH0 are set |
+| 10 | Conditionals processed before token replacement | Allows tokens inside conditional blocks |
+| 10 | JSX conditionals use comment syntax {/* */} | Maintains valid JSX in templates |
+| 10 | Double AuthProvider tags intentional | Only one kept based on provider selection |
+| 10 | Route ordering: /users/me before /users/{id} | Prevents API Gateway route conflicts |
+| 10 | Return groups (Cognito) vs permissions (Auth0) | Reflects each provider's authorization model |
 
 ### Deferred Issues
 
-None yet.
+None.
 
 ### Blockers/Concerns
 
-None yet.
+None.
 
 ### Roadmap Evolution
 
-- Phase 1.1 inserted after Phase 1: Address codebase concerns (URGENT) — fix tech debt before templating
+- Phase 1.1 inserted after Phase 1: Address codebase concerns — fixed tech debt before templating
+- v1.0 milestone complete with 7 phases, 18 plans
+- Milestone v1.1 created: Authentication scaffolding, 4 phases (Phase 7-10)
 
 ## Session Continuity
 
-Last session: 2026-01-15
-Stopped at: Completed 05-03-PLAN.md (Phase 05 complete)
+Last session: 2026-01-19
+Stopped at: Completed 10-04-PLAN.md (Auth UI Integration) - Phase 10 complete, v1.1 milestone complete
 Resume file: None
-Next: Phase 06 (Documentation & Polish)

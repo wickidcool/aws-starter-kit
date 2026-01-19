@@ -1,4 +1,4 @@
-import type { ProjectConfig } from '../types.js';
+import type { ProjectConfig, AuthProvider } from '../types.js';
 import type { TokenValues, TemplateManifest } from './types.js';
 
 /**
@@ -34,6 +34,10 @@ export function deriveTokenValues(config: ProjectConfig): TokenValues {
     AWS_REGION: config.awsRegion,
     PACKAGE_SCOPE: `@${config.projectName}`,
     BRAND_COLOR: config.brandColor,
+    AUTH_COGNITO: config.auth.provider === 'cognito' ? 'true' : 'false',
+    AUTH_AUTH0: config.auth.provider === 'auth0' ? 'true' : 'false',
+    AUTH_SOCIAL_LOGIN: config.auth.features.includes('social-login') ? 'true' : 'false',
+    AUTH_MFA: config.auth.features.includes('mfa') ? 'true' : 'false',
   };
 }
 
@@ -63,5 +67,19 @@ export const templateManifest: TemplateManifest = {
   byFeature: {
     'github-actions': [{ src: '.github', dest: '.github' }],
     'vscode-config': [{ src: '.vscode', dest: '.vscode' }],
+  },
+  byAuthProvider: {
+    cognito: [
+      { src: 'apps/api/cdk/auth', dest: 'apps/api/cdk/auth' },
+      { src: 'apps/web/src/auth/cognito-provider.tsx', dest: 'apps/web/src/auth/cognito-provider.tsx' },
+      { src: 'apps/web/src/config/amplify-config.ts', dest: 'apps/web/src/config/amplify-config.ts' },
+      { src: 'apps/api/src/middleware/cognito-auth.ts', dest: 'apps/api/src/middleware/cognito-auth.ts' },
+    ],
+    auth0: [
+      { src: 'apps/web/src/auth/auth0-provider.tsx', dest: 'apps/web/src/auth/auth0-provider.tsx' },
+      { src: 'apps/web/src/config/auth0-config.ts', dest: 'apps/web/src/config/auth0-config.ts' },
+      { src: 'apps/api/src/middleware/auth0-auth.ts', dest: 'apps/api/src/middleware/auth0-auth.ts' },
+    ],
+    none: [],
   },
 };
