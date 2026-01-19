@@ -75,10 +75,13 @@ Plans:
 **Goal**: Wire auth into existing web/mobile/api templates, conditional generation logic based on auth selection
 **Depends on**: Phase 8, Phase 9
 **Research**: Unlikely (internal patterns - existing generation engine)
-**Plans**: TBD
+**Plans**: 4
 
 Plans:
-- [ ] 10-01: TBD
+- [x] 10-01: Conditional block processing for generator (completed 2026-01-19)
+- [ ] 10-02: TBD
+- [ ] 10-03: TBD
+- [ ] 10-04: TBD
 
 ## Progress
 
@@ -94,4 +97,4 @@ Plans:
 | 7. Auth Wizard & Types | v1.1 | 1/1 | Complete | 2026-01-17 |
 | 8. Cognito Templates | v1.1 | 4/4 | Complete | 2026-01-18 |
 | 9. Auth0 Templates | v1.1 | 3/3 | Complete | 2026-01-19 |
-| 10. Auth Integration | v1.1 | 0/? | Not started | - |
+| 10. Auth Integration | v1.1 | 1/4 | In progress | - |
