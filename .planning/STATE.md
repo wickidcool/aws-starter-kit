@@ -2,20 +2,20 @@
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-01-16)
+See: .planning/PROJECT.md (updated 2026-01-19)
 
 **Core value:** Run it, answer questions, have a working project immediately
-**Current focus:** v1.1 Authentication — add auth scaffolding with Cognito/Auth0 choice
+**Current focus:** None — awaiting next milestone
 
 ## Current Position
 
-Milestone: v1.1 Authentication
+Milestone: v1.1 Authentication (COMPLETE)
 Phase: 10 of 10 (Auth Integration)
 Plan: 4 of 4 in current phase
-Status: COMPLETE
-Last activity: 2026-01-19 — Completed 10-04-PLAN.md
+Status: MILESTONE COMPLETE
+Last activity: 2026-01-19 — Completed v1.1 milestone, archived to milestones/v1.1-ROADMAP.md
 
-Progress: ██████████ 100% (v1.1 Authentication - 12/12 plans)
+Progress: ██████████ 100% (v1.1 Authentication - 13/13 plans)
 
 ## Performance Metrics
 

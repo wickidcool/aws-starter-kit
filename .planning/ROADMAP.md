@@ -11,7 +11,7 @@ None
 ## Milestones
 
 - ✅ **v1.0 MVP** — Phases 1-6 (shipped 2026-01-16) — [Full details](milestones/v1.0-ROADMAP.md)
-- 🚧 **v1.1 Authentication** — Phases 7-10 (in progress)
+- ✅ **v1.1 Authentication** — Phases 7-10 (shipped 2026-01-19) — [Full details](milestones/v1.1-ROADMAP.md)
 
 ## Completed Milestones
 
@@ -30,58 +30,17 @@ None
 
 </details>
 
-### 🚧 v1.1 Authentication (In Progress)
+<details>
+<summary>✅ v1.1 Authentication (Phases 7-10) — SHIPPED 2026-01-19</summary>
 
-**Milestone Goal:** Add authentication scaffolding with choice between AWS Cognito and Auth0, with configurable features (basic auth, social logins, MFA)
+- [x] **Phase 7: Auth Wizard & Types** - Auth provider prompt, feature selection, types (1/1 plans)
+- [x] **Phase 8: Cognito Templates** - CDK infrastructure, Lambda authorizers, React hooks (5/5 plans)
+- [x] **Phase 9: Auth0 Templates** - Auth0 config, React SDK, API middleware (3/3 plans)
+- [x] **Phase 10: Auth Integration** - Conditional generation, protected endpoints, auth UI (4/4 plans)
 
-#### Phase 7: Auth Wizard & Types
+**Total:** 4 phases, 13 plans
 
-**Goal**: Add auth provider prompt, feature selection prompts, extend ProjectConfig with auth types
-**Depends on**: v1.0 complete
-**Research**: Unlikely (internal patterns - existing wizard code)
-**Plans**: 1
-
-Plans:
-- [x] 07-01: Auth types, prompts, wizard integration (completed 2026-01-17)
-
-#### Phase 8: Cognito Templates
-
-**Goal**: CDK User Pool/Identity Pool infrastructure, Lambda authorizers, React auth hooks and components
-**Depends on**: Phase 7
-**Research**: Complete (AWS Cognito CDK patterns, aws-jwt-verify, Amplify v6)
-**Plans**: 4
-
-Plans:
-- [x] 08-01: CDK Cognito infrastructure + generator manifest (completed 2026-01-17)
-- [x] 08-02: Lambda authorizer middleware with aws-jwt-verify (completed 2026-01-17)
-- [x] 08-03: React auth hooks & provider with Amplify (completed 2026-01-17)
-- [x] 08-04: Generator integration + Amplify config + tests (completed 2026-01-18)
-
-#### Phase 9: Auth0 Templates
-
-**Goal**: Auth0 configuration files, React SDK integration, API middleware for token validation
-**Depends on**: Phase 7
-**Research**: Likely (Auth0 SDK integration, current docs)
-**Research topics**: Auth0 React SDK, API middleware patterns, Auth0 configuration management
-**Plans**: 3
-
-Plans:
-- [x] 09-01: Auth0 React provider & config templates (completed 2026-01-18)
-- [x] 09-02: Auth0 API middleware templates (completed 2026-01-19)
-- [x] 09-03: Generator integration for Auth0 (completed 2026-01-19)
-
-#### Phase 10: Auth Integration
-
-**Goal**: Wire auth into existing web/mobile/api templates, conditional generation logic based on auth selection
-**Depends on**: Phase 8, Phase 9
-**Research**: Unlikely (internal patterns - existing generation engine)
-**Plans**: 4
-
-Plans:
-- [x] 10-01: Conditional block processing for generator (completed 2026-01-19)
-- [x] 10-02: Auth provider integration in App.tsx (completed 2026-01-19)
-- [x] 10-03: Protected endpoint example (completed 2026-01-19)
-- [ ] 10-04: TBD
+</details>
 
 ## Progress
 
@@ -95,6 +54,6 @@ Plans:
 | 5. Feature Toggles | v1.0 | 3/3 | Complete | 2026-01-15 |
 | 6. Polish & Publish | v1.0 | 3/3 | Complete | 2026-01-16 |
 | 7. Auth Wizard & Types | v1.1 | 1/1 | Complete | 2026-01-17 |
-| 8. Cognito Templates | v1.1 | 4/4 | Complete | 2026-01-18 |
+| 8. Cognito Templates | v1.1 | 5/5 | Complete | 2026-01-18 |
 | 9. Auth0 Templates | v1.1 | 3/3 | Complete | 2026-01-19 |
-| 10. Auth Integration | v1.1 | 3/4 | In progress | - |
+| 10. Auth Integration | v1.1 | 4/4 | Complete | 2026-01-19 |
