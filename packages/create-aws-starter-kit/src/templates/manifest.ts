@@ -72,7 +72,11 @@ export const templateManifest: TemplateManifest = {
     cognito: [
       { src: 'apps/api/cdk/auth', dest: 'apps/api/cdk/auth' },
     ],
-    auth0: [], // Will be populated in Phase 9
+    auth0: [
+      { src: 'apps/web/src/auth/auth0-provider.tsx', dest: 'apps/web/src/auth/auth0-provider.tsx' },
+      { src: 'apps/web/src/config/auth0-config.ts', dest: 'apps/web/src/config/auth0-config.ts' },
+      { src: 'apps/api/src/middleware/auth0-auth.ts', dest: 'apps/api/src/middleware/auth0-auth.ts' },
+    ],
     none: [],
   },
 };
