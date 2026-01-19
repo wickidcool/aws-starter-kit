@@ -1,15 +1,24 @@
 import prompts from 'prompts';
 import pc from 'picocolors';
-import type { ProjectConfig } from './types.js';
+import type { AuthConfig, ProjectConfig } from './types.js';
 import { projectNamePrompt } from './prompts/project-name.js';
 import { platformsPrompt } from './prompts/platforms.js';
+import { authProviderPrompt, authFeaturesPrompt } from './prompts/auth.js';
 import { featuresPrompt } from './prompts/features.js';
 import { awsRegionPrompt } from './prompts/aws-config.js';
 import { themePrompt } from './prompts/theme.js';
 
 export async function runWizard(): Promise<ProjectConfig | null> {
   const response = await prompts(
-    [projectNamePrompt, platformsPrompt, featuresPrompt, awsRegionPrompt, themePrompt],
+    [
+      projectNamePrompt,
+      platformsPrompt,
+      authProviderPrompt,
+      authFeaturesPrompt,
+      featuresPrompt,
+      awsRegionPrompt,
+      themePrompt
+    ],
     {
       onCancel: () => {
         console.log(`\n${pc.red('✖')} Setup cancelled`);
@@ -28,5 +37,18 @@ export async function runWizard(): Promise<ProjectConfig | null> {
     response.features = [];
   }
 
-  return response as ProjectConfig;
+  // Construct auth config with defaults
+  const auth: AuthConfig = {
+    provider: response.authProvider || 'none',
+    features: response.authFeatures || [],
+  };
+
+  return {
+    projectName: response.projectName,
+    platforms: response.platforms,
+    awsRegion: response.awsRegion,
+    features: response.features,
+    brandColor: response.brandColor,
+    auth,
+  } as ProjectConfig;
 }

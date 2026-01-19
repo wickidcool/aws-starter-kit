@@ -4,6 +4,9 @@ import * as cdk from 'aws-cdk-lib';
 import { StaticStack } from './static-stack';
 import { UserStack } from './user-stack';
 import { DeploymentUserStack } from './deployment-user-stack';
+// {{#if AUTH_COGNITO}}
+import { CognitoStack } from './auth/cognito-stack';
+// {{/if AUTH_COGNITO}}
 
 const appName = '{{PROJECT_NAME_PASCAL}}';
 
@@ -64,3 +67,13 @@ new DeploymentUserStack(app, `${appName}-DeployUser-${environmentName}`, {
   description: `GitHub Actions deployment user for ${environmentName} environment`,
   tags,
 });
+
+// {{#if AUTH_COGNITO}}
+// Create the Cognito authentication stack
+new CognitoStack(app, `${appName}-Cognito-${environmentName}`, {
+  stage: environmentName,
+  env,
+  description: `{{PROJECT_NAME_TITLE}} Cognito authentication for ${environmentName} environment`,
+  tags,
+});
+// {{/if AUTH_COGNITO}}

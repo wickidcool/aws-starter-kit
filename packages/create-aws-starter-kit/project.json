@@ -11,7 +11,14 @@
       "options": {
         "outputPath": "packages/create-aws-starter-kit/dist",
         "main": "packages/create-aws-starter-kit/src/index.ts",
-        "tsConfig": "packages/create-aws-starter-kit/tsconfig.json"
+        "tsConfig": "packages/create-aws-starter-kit/tsconfig.json",
+        "assets": [
+          {
+            "input": "packages/create-aws-starter-kit/templates",
+            "glob": "**/*",
+            "output": "templates"
+          }
+        ]
       }
     },
     "lint": {

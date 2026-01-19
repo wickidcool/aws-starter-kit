@@ -41,6 +41,8 @@ describe('runWizard', () => {
       mockedPrompts.mockResolvedValueOnce({
         projectName: 'my-test-app',
         platforms: ['web', 'api'],
+        authProvider: 'none',
+        authFeatures: [],
         features: ['github-actions'],
         awsRegion: 'us-east-1',
         brandColor: 'blue',
@@ -55,6 +57,7 @@ describe('runWizard', () => {
         features: ['github-actions'],
         awsRegion: 'us-east-1',
         brandColor: 'blue',
+        auth: { provider: 'none', features: [] },
       });
     });
 
@@ -62,6 +65,8 @@ describe('runWizard', () => {
       mockedPrompts.mockResolvedValueOnce({
         projectName: 'full-stack-app',
         platforms: ['web', 'mobile', 'api'],
+        authProvider: 'none',
+        authFeatures: [],
         features: ['github-actions', 'vscode-config'],
         awsRegion: 'eu-west-1',
         brandColor: 'purple',
@@ -78,6 +83,8 @@ describe('runWizard', () => {
       mockedPrompts.mockResolvedValueOnce({
         projectName: 'minimal-app',
         platforms: ['api'],
+        authProvider: 'none',
+        authFeatures: [],
         features: undefined, // No features selected
         awsRegion: 'ap-southeast-1',
         brandColor: 'teal',
@@ -168,6 +175,8 @@ describe('runWizard', () => {
       mockedPrompts.mockResolvedValueOnce({
         projectName: 'test-app',
         platforms: ['web'],
+        authProvider: 'none',
+        authFeatures: [],
         features: [],
         awsRegion: 'us-east-1',
         brandColor: 'green',
@@ -181,12 +190,15 @@ describe('runWizard', () => {
       expect(result).toHaveProperty('features');
       expect(result).toHaveProperty('awsRegion');
       expect(result).toHaveProperty('brandColor');
+      expect(result).toHaveProperty('auth');
     });
 
     it('should pass correct prompts to prompts library', async () => {
       mockedPrompts.mockResolvedValueOnce({
         projectName: 'my-app',
         platforms: ['web'],
+        authProvider: 'none',
+        authFeatures: [],
         features: [],
         awsRegion: 'us-east-1',
         brandColor: 'orange',
@@ -197,9 +209,68 @@ describe('runWizard', () => {
       expect(mockedPrompts).toHaveBeenCalledTimes(1);
       const [promptsArg] = mockedPrompts.mock.calls[0];
 
-      // Verify 5 prompts are passed (projectName, platforms, features, awsRegion, brandColor)
+      // Verify 7 prompts are passed (projectName, platforms, authProvider, authFeatures, features, awsRegion, brandColor)
       expect(Array.isArray(promptsArg)).toBe(true);
-      expect((promptsArg as PromptObject[]).length).toBe(5);
+      expect((promptsArg as PromptObject[]).length).toBe(7);
+    });
+  });
+
+  describe('auth configuration', () => {
+    it('should return ProjectConfig with Cognito auth and features', async () => {
+      mockedPrompts.mockResolvedValueOnce({
+        projectName: 'auth-test-app',
+        platforms: ['web', 'api'],
+        authProvider: 'cognito',
+        authFeatures: ['social-login', 'mfa'],
+        features: [],
+        awsRegion: 'us-east-1',
+        brandColor: 'blue',
+      } as Answers<string>);
+
+      const result = await runWizard();
+
+      expect(result?.auth).toEqual({
+        provider: 'cognito',
+        features: ['social-login', 'mfa'],
+      });
+    });
+
+    it('should return ProjectConfig with Auth0 auth and no features', async () => {
+      mockedPrompts.mockResolvedValueOnce({
+        projectName: 'auth0-app',
+        platforms: ['web'],
+        authProvider: 'auth0',
+        authFeatures: [],
+        features: ['github-actions'],
+        awsRegion: 'eu-west-1',
+        brandColor: 'purple',
+      } as Answers<string>);
+
+      const result = await runWizard();
+
+      expect(result?.auth).toEqual({
+        provider: 'auth0',
+        features: [],
+      });
+    });
+
+    it('should default auth to none when not selected', async () => {
+      mockedPrompts.mockResolvedValueOnce({
+        projectName: 'no-auth-app',
+        platforms: ['api'],
+        authProvider: 'none',
+        // authFeatures not returned when provider is 'none'
+        features: [],
+        awsRegion: 'us-west-2',
+        brandColor: 'teal',
+      } as Answers<string>);
+
+      const result = await runWizard();
+
+      expect(result?.auth).toEqual({
+        provider: 'none',
+        features: [],
+      });
     });
   });
 });

@@ -14,6 +14,7 @@ import {
   ListIcon,
   Badge,
   useToast,
+  Spinner,
 } from '@chakra-ui/react';
 import { CheckCircleIcon } from '@chakra-ui/icons';
 import { useUserStore } from './store/user-store';
@@ -21,10 +22,22 @@ import type { User } from '{{PACKAGE_SCOPE}}/common-types';
 import { apiClient } from './config/api';
 import { ApiError } from '{{PACKAGE_SCOPE}}/api-client';
 import { useEffect } from 'react';
+// {{#if AUTH_COGNITO}}
+import { useAuth } from './auth';
+// {{/if AUTH_COGNITO}}
+// {{#if AUTH_AUTH0}}
+import { useAuth } from './auth';
+// {{/if AUTH_AUTH0}}
 
 function App() {
   const { user, users, setUser, addUser, setUsers, isLoading, error } = useUserStore();
   const toast = useToast();
+  // {{#if AUTH_COGNITO}}
+  const { user: authUser, isAuthenticated, isLoading: authLoading, signIn, signOut } = useAuth();
+  // {{/if AUTH_COGNITO}}
+  // {{#if AUTH_AUTH0}}
+  const { user: authUser, isAuthenticated, isLoading: authLoading, signIn, signOut } = useAuth();
+  // {{/if AUTH_AUTH0}}
 
   // Fetch users on mount
   useEffect(() => {
@@ -116,7 +129,44 @@ function App() {
         bgGradient="linear(to-r, brand.500, purple.500)"
         py={8}
         boxShadow="lg"
+        position="relative"
       >
+        {/* {{#if AUTH_COGNITO}} */}
+        <HStack position="absolute" top={4} right={4}>
+          {authLoading ? (
+            <Spinner size="sm" />
+          ) : isAuthenticated && authUser ? (
+            <HStack>
+              <Badge colorScheme="green">{authUser.email}</Badge>
+              <Button size="sm" colorScheme="red" variant="outline" onClick={() => signOut()}>
+                Sign Out
+              </Button>
+            </HStack>
+          ) : (
+            <Button size="sm" colorScheme="brand" onClick={() => signIn('', '')}>
+              Sign In
+            </Button>
+          )}
+        </HStack>
+        {/* {{/if AUTH_COGNITO}} */}
+        {/* {{#if AUTH_AUTH0}} */}
+        <HStack position="absolute" top={4} right={4}>
+          {authLoading ? (
+            <Spinner size="sm" />
+          ) : isAuthenticated && authUser ? (
+            <HStack>
+              <Badge colorScheme="green">{authUser.email}</Badge>
+              <Button size="sm" colorScheme="red" variant="outline" onClick={() => signOut()}>
+                Sign Out
+              </Button>
+            </HStack>
+          ) : (
+            <Button size="sm" colorScheme="brand" onClick={() => signIn('', '')}>
+              Sign In
+            </Button>
+          )}
+        </HStack>
+        {/* {{/if AUTH_AUTH0}} */}
         <Container maxW="container.xl">
           <VStack spacing={2}>
             <Heading size="2xl">{{PROJECT_NAME_TITLE}}</Heading>
