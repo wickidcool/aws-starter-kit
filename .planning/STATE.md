@@ -11,11 +11,11 @@ See: .planning/PROJECT.md (updated 2026-01-16)
 
 Milestone: v1.1 Authentication
 Phase: 9 of 10 (Auth0 Templates)
-Plan: 1 of 3 in current phase
+Plan: 2 of 3 in current phase
 Status: In progress
-Last activity: 2026-01-18 — Completed 09-01-PLAN.md
+Last activity: 2026-01-19 — Completed 09-02-PLAN.md
 
-Progress: █████░░░░░ 50% (v1.1 Authentication - 6/12 plans)
+Progress: ██████░░░░ 58% (v1.1 Authentication - 7/12 plans)
 
 ## Performance Metrics
 
@@ -42,7 +42,7 @@ Progress: █████░░░░░ 50% (v1.1 Authentication - 6/12 plans)
 |-------|-------|-------|----------|
 | 7 | 1 | 8 min | 8 min |
 | 8 | 4 | 17 min | 4.3 min |
-| 9 | 1 | 5 min | 5 min |
+| 9 | 2 | 6 min | 3 min |
 
 ## Accumulated Context
 
@@ -61,6 +61,8 @@ All v1.0 decisions logged in PROJECT.md Key Decisions table.
 | 8 | Auth template copying follows existing patterns | Consistency with platform/feature handling |
 | 9 | Auth0 uses redirect-based auth (loginWithRedirect) | Auth0's standard flow via Universal Login |
 | 9 | confirmSignUp/forgotPassword throw unsupported errors | Auth0 handles these flows internally |
+| 9 | Auth0 middleware uses jose library directly | Lambda handlers don't use Express middleware |
+| 9 | Auth0 uses permissions claim for authorization | Auth0 RBAC model vs Cognito groups |
 
 ### Deferred Issues
 
@@ -78,6 +80,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-01-18
-Stopped at: Completed 09-01-PLAN.md (Auth0 React provider templates)
+Last session: 2026-01-19
+Stopped at: Completed 09-02-PLAN.md (Auth0 Lambda middleware)
 Resume file: None
