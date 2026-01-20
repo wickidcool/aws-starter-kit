@@ -1,6 +1,6 @@
 {
   "name": "aws-starter-kit",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Nx monorepo with React web client, AWS Lambda API, and shared types",
   "engines": {
     "node": ">=22.0.0",
